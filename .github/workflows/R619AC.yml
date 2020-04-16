@@ -57,6 +57,7 @@ jobs:
           git clone https://github.com/Ameykyl/luci-app-koolproxyR
           git clone https://github.com/rosywrt/luci-theme-rosy
           git clone https://github.com/rufengsuixing/luci-app-adguardhome
+          git clone https://github.com/KFERMercer/luci-app-baidupcs-web.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -5780,6 +5781,7 @@ jobs:
                 CONFIG_PACKAGE_luci-app-koolproxyR=y
                 CONFIG_PACKAGE_luci-theme-rosy=y
                 CONFIG_PACKAGE_luci-app-adguardhome=y
+                CONFIG_PACKAGE_luci-app-baidupcs-web=y
                 # Xorg
                 #
                 #
