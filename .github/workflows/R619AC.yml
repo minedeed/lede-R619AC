@@ -42,7 +42,8 @@ jobs:
           sudo -E apt-get clean
       - name: Check Space
         run: |
-          df
+          df -h
+          pwd
       - name: Clone Project
         run: |
           git clone https://github.com/coolsnowwolf/lede tmp
