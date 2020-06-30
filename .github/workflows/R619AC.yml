@@ -5785,7 +5785,7 @@ jobs:
                 CONFIG_PACKAGE_luci-app-koolproxyR=y
                 CONFIG_PACKAGE_luci-theme-rosy=y
                 CONFIG_PACKAGE_luci-app-adguardhome=y
-                CONFIG_PACKAGE_luci-app-baidupcs-web=y
+                #CONFIG_PACKAGE_luci-app-baidupcs-web=y
                 # Xorg
                 #
                 #
