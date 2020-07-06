@@ -5813,11 +5813,8 @@ jobs:
           echo -e "$(nproc) thread build."
           #make -j$(nproc) V=s
           make -j16 V=s
-      - name: MoveFile
-        run: |
-          mv target targets/
       - name : Upload artifact
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
-          path: bin/targets
+          path: bin
