@@ -5813,8 +5813,33 @@ jobs:
           echo -e "$(nproc) thread build."
           #make -j$(nproc) V=s
           make -j16 V=s
-      - name : Upload artifact
+      - name: Prepare artifact
+        run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
+
+      - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt firmware
-          path: bin
+          name: OpenWrt_firmware
+          path: ./bin/targets/
+
+      - name: Create release
+        if: github.event == 'push'
+        id: create_release
+        uses: actions/create-release@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false      
+
+      - name: Upload release asset
+        if: github.event == 'push'
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bin/targets/*/*/
