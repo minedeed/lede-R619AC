@@ -61,6 +61,7 @@ jobs:
           git clone https://github.com/rufengsuixing/luci-app-adguardhome
           git clone https://github.com/KFERMercer/luci-app-baidupcs-web.git
           git clone https://github.com/KFERMercer/openwrt-baidupcs-web.git
+          git clone https://github.com/vernesong/OpenClash.git
       - name: Update feeds
         run: |
           echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
@@ -235,6 +236,7 @@ jobs:
                 CONFIG_DEFAULT_luci-app-ramfree=y
                 CONFIG_DEFAULT_luci-app-sfe=y
                 CONFIG_DEFAULT_luci-app-ssr-plus=y
+                CONFIG_DEFAULT_OpenClash=y
                 CONFIG_DEFAULT_luci-app-unblockmusic=y
                 CONFIG_DEFAULT_luci-app-upnp=y
                 CONFIG_DEFAULT_luci-app-vlmcsd=y
